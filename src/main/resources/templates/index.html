@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>HongWon Package</title>
+        <!-- Favicon-->
+        <link rel="icon" href="/bootstrap/assets/box-solid.png">
+        <!--<link rel="icon" type="image/x-icon" href="../static/bootstrap/assets/favicon.ico" />-->
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/bootstrap/css/styles.css" rel="stylesheet" />
+        <!--Swiper-->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+        <!-- Demo styles -->
+        <style>
+            html,
+            body {
+              position: relative;
+              height: 100%;
+            }
+
+            body {
+              background: #eee;
+              font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+              font-size: 14px;
+              color: #000;
+              margin: 0;
+              padding: 0;
+            }
+
+            .swiper-container {
+                position: relative;
+                width: 100%;
+                height: 450px;
+                overflow: hidden; /* Prevent horizontal scrolling */
+            }
+
+            .swiper-slide {
+              text-align: center;
+              font-size: 18px;
+              background: #fff;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+            }
+
+            .swiper-slide img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+
+            .swiper-button-prev, .swiper-button-next {
+            position: absolute;
+            color: #ff914d; /* 버튼 색상 */
+            top: 50%;
+            width: 3em; /* 버튼 크기 */
+            height: 3em;
+            margin-top: -1.5em; /* 버튼 크기의 절반만큼 위로 이동 */
+            color: #ff914d; /* 버튼 색상 */
+            font-size: 2em; /* 버튼 아이콘 크기 */
+            z-index: 10; /* 이미지 위에 배치 */
+            }
+
+            .swiper-button-prev {
+                left: 10px; /* 버튼 위치 조정 */
+            }
+
+            .swiper-button-next {
+                right: 10px; /* 버튼 위치 조정 */
+            }
+
+            .swiper-pagination {
+                position: absolute;
+                z-index: 10; /* 이미지 위에 배치 */
+                display: flex; /* Flexbox를 사용하여 내부 정렬 */
+                justify-content: center; /* 내부 요소 중앙 정렬 */
+            }
+
+            .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+            bottom: var(--swiper-pagination-bottom, 20px);
+
+        </style>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a href="/">
+                    <img src="/bootstrap/assets/logo4.png" alt="이미지 없음" style="width:270px;height:50px;">
+                </a>
+                <!--<a class="navbar-brand" href="#!">HongWon Package</a>-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">홈</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="#!">회사소개</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="/product">상품</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/qnaboard">고객센터</a></li>
+<!--                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">상품보기</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">전체상품</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">큰박스</a></li>
+                                <li><a class="dropdown-item" href="#!">작은박스</a></li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi bi-person-circle"></i>
+                            마이페이지
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            카트
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header>
+            <!--Swiper HTML 구조-->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="/bootstrap/assets/company3.jpg" alt="이미지 없음" ></div>
+                    <div class="swiper-slide"><img src="/bootstrap/assets/company4.jpg" alt="이미지 없음" ></div>
+                    <div class="swiper-slide"><img src="/bootstrap/assets/company6.jpg" alt="이미지 없음" ></div>
+
+                </div>
+                <!-- If you want pagination, navigation buttons, etc. -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+            </div>
+        </header>
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Fancy Product</h5>
+                                    <!-- Product price-->
+                                    $40.00 - $80.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Special Item</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$20.00</span>
+                                    $18.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Sale Item</h5>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$50.00</span>
+                                    $25.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Popular Item</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    $40.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Sale Item</h5>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$50.00</span>
+                                    $25.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Fancy Product</h5>
+                                    <!-- Product price-->
+                                    $120.00 - $280.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Special Item</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$20.00</span>
+                                    $18.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Popular Item</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    $40.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; HongWon Package</p></div>
+        </footer>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <!--Swiper 설정-->
+        <script>
+            var swiper = new Swiper('.swiper-container', {
+              // 옵션 설정
+              slidesPerView: 1,
+              spaceBetween: 10,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+            });
+        </script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/bootstrap/js/scripts.js"/>
+    </body>
+</html>
