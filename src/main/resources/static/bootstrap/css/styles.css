@@ -10,6 +10,7 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -10824,4 +10825,26 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+form.d-flex {
+  justify-content: flex-end;
+  display: flex;
+  width: 40%; /* 폼이 부모 요소에 맞게 크기를 조정하도록 */
+}
+
+form.d-flex button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem; /* 버튼 크기 고정 */
+  font-size: 1rem;
+}
+
+form.d-flex i {
+  font-size: 1.25rem; /* 아이콘 크기 설정 */
+}
+
+form.d-flex .badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
 }

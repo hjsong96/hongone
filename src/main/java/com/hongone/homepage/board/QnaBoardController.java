@@ -34,4 +34,9 @@ public class QnaBoardController {
 
         return "qnaboard";
     }
+
+    @GetMapping("qnaWrite")
+    public String qnaWrite() {
+        return "qnaWrite";
+    }
 }

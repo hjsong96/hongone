@@ -40,13 +40,13 @@
             </ul>
             <form class="d-flex">
                 <button class="btn btn-outline-dark" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    카트
+                    <i class="bi bi-person-circle"></i>
+                    마이페이지
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
                 <button class="btn btn-outline-dark" type="submit">
-                    <i class="bi bi-person-circle"></i>
-                    마이페이지
+                    <i class="bi-cart-fill me-1"></i>
+                    카트
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
             </form>
@@ -95,90 +95,32 @@
         </ol>
     </nav>
 </div>
-<!--Customer-img-->
-
-<div class="section my-4">
-    <nav class="card-section my-3">
-        <a class="card-img" href="/fre_qnaboard">
-        <img src="/bootstrap/assets/frequent.png" alt="이미지 없음">
-            <p>자주 묻는 질문</p>
-        </a>
-        <a class="card-img" href="/noti_board">
-            <img src="/bootstrap/assets/notice.png" alt="이미지 없음">
-            <p>공지사항</p>
-        </a>
-        <a class="card-img" href="/qnaboard">
-            <img src="/bootstrap/assets/qna.png" alt="이미지 없음">
-            <p>고객문의</p>
-        </a>
-        <a class="card-img" href="/quo_board">
-            <img src="/bootstrap/assets/box.png" alt="이미지 없음">
-            <p>견적문의</p>
-        </a>
-    </nav>
+<div class="container">
+    <div class="content qnaContent ms-4 my-sm-2">
+        <div class="content_row">
+            <div class="content_title">문의유형</div>
+            <div class="content_input ms-4">
+                <ul>
+                    <li><input type="radio" name=qType value="0" checked>주문/결제</li>
+                    <li><input type="radio" name=qType value="1">취소/반품/교환</li>
+                    <li><input type="radio" name=qType value="2">배송문의</li>
+                    <li><input type="radio" name=qType value="3">상품문의</li>
+                    <li><input type="radio" name=qType value="4">회원문의</li>
+                    <li><input type="radio" name=qType value="5">기타문의</li>
+                 </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content qnaContent ms-4 my-sm-2">
+        <div class="content_row">
+            <div class="content_title">제목</div>
+            <div class="content_input ms-4">
+                <input type="text" name="qna_title" width="100%">
+            </div>
+        </div>
+    </div>
 </div>
-<!-- Section-->
-<section class="py-2">
-    <div class="container search-container">
-        <form th:action="@{/qnaboard}" method="get" class="search-box">
-            <div class="search-box">
-                <select>
-                    <option>제목</option>
-                    <option>작성자</option>
-                    <option>내용</option>
-                </select>
-                <input type="text" placeholder="검색어를 입력하세요" >
-                <button type="submit">검색</button>
-            </div>
-        </form>
-    </div>
-    <div class="container mt-4">
-        <table class="table">
-            <thead>
-            <tr class="table table-primary">
-                <th scope="col">No</th>
-                <th scope="col">문의유형</th>
-                <th scope="col">제목</th>
-                <th scope="col">작성자</th>
-                <th scope="col">등록일</th>
-                <th scope="col">진행상태</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="qnaBoard : ${qnaBoards}">
-                <th th:text="${qnaBoard.qna_no}"></th>
-                <th th:text="${qnaBoard.qna_type}"></th>
-                <td th:text="${qnaBoard.qna_title}"></td>
-                <td th:text="${qnaBoard.qna_writer}"></td>
-                <td th:text="${qnaBoard.qna_date}"></td>
-                <td th:text="${qnaBoard.qna_status}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-        <div class="container board_bottom_area">
-            <ul class="pagination">
-                <!-- 이전 버튼 -->
-                <li class="page-item" th:if="${page > 1}">
-                    <a class="page-link" th:href="@{/qnaboard(page=${page-1}, size=${size})}">Previous</a>
-                </li>
 
-                <!-- 페이지 번호 버튼들 -->
-                <li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}"
-                    th:classappend="${i == page} ? 'active'">
-                    <a class="page-link" th:href="@{/qnaboard(page=${i}, size=${size})}" th:text="${i}"></a>
-                </li>
-
-                <!-- 다음 버튼 -->
-                <li class="page-item" th:if="${page < totalPages}">
-                    <a class="page-link" th:href="@{/qnaboard(page=${page+1}, size=${size})}">Next</a>
-                </li>
-            </ul>
-            <div>
-                <button class="btn btn-primary" type="button" onclick="window.location.href='qnaboard/qnaWrite'">문의하기</button>
-            </div>
-    </div>
-</section>
 <!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; HongWon Package</p></div>
