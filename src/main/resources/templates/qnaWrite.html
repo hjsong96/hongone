@@ -95,31 +95,56 @@
         </ol>
     </nav>
 </div>
-<div class="container">
-    <div class="content qnaContent ms-4 my-sm-2">
-        <div class="content_row">
-            <div class="content_title">문의유형</div>
-            <div class="content_input ms-4">
-                <ul>
-                    <li><input type="radio" name=qType value="0" checked>주문/결제</li>
-                    <li><input type="radio" name=qType value="1">취소/반품/교환</li>
-                    <li><input type="radio" name=qType value="2">배송문의</li>
-                    <li><input type="radio" name=qType value="3">상품문의</li>
-                    <li><input type="radio" name=qType value="4">회원문의</li>
-                    <li><input type="radio" name=qType value="5">기타문의</li>
-                 </ul>
+<!--qnaContent-->
+<form th:action="@{/qnaboard/write}" method="post">
+    <div class="container">
+        <div class="total_content p-4">
+            <div class="content my-sm-2">
+                <div class="content_row">
+                    <div class="content_title">문의유형</div>
+                    <div class="content_input ms-4">
+                        <ul>
+                            <li><input type="radio" name=qna_type value="0" checked>주문/결제</li>
+                            <li><input type="radio" name=qna_type value="1">취소/반품/교환</li>
+                            <li><input type="radio" name=qna_type value="2">배송문의</li>
+                            <li><input type="radio" name=qna_type value="3">상품문의</li>
+                            <li><input type="radio" name=qna_type value="4">회원문의</li>
+                            <li><input type="radio" name=qna_type value="5">기타문의</li>
+                         </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content my-sm-2">
+                <div class="content_row">
+                    <div class="content_title">제목</div>
+                    <div class="content_input ms-5">
+                        <input type="text" name="qna_title" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="content my-sm-2">
+                <div class="content_row">
+                    <div class="content_title">내용</div>
+                    <div class="content_input ms-5">
+                        <textarea name="qna_content" width="100%" ></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="content my-sm-2">
+                <div class="content_row">
+                    <div class="content_title">작성자</div>
+                    <div class="content_input writer ms-6">
+                        <input type="text" name="qna_writer" th:value="${qna_writer}" width="15%" disabled>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="content qnaContent ms-4 my-sm-2">
-        <div class="content_row">
-            <div class="content_title">제목</div>
-            <div class="content_input ms-4">
-                <input type="text" name="qna_title" width="100%">
-            </div>
+        <div class="bottom_center_btn my-sm-4">
+            <button class="btn btn-secondary" type="button" onclick="window.location.href='/qnaboard'">목록</button>
+            <button class="btn btn-primary" type="submit">문의하기</button>
         </div>
     </div>
-</div>
+</form>
 
 <!-- Footer-->
 <footer class="py-5 bg-dark">

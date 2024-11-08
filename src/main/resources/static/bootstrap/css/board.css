@@ -153,6 +153,28 @@ ul {
 }
 
 .content_input input[type="text"] {
-    width: 80%; /* 부모 너비를 100% 채우기 */
+    width: 100%; /* 부모 너비를 100% 채우기 */
     box-sizing: border-box; /* padding 포함한 크기 조절 */
+}
+
+.content_input textarea {
+    width: 100%; /* 부모 너비를 100% 채우기 */
+    height: 22rem;
+    box-sizing: border-box; /* padding 포함한 크기 조절 */
+    resize: vertical; /* 텍스트 영역 크기 조정 가능 */
+}
+
+.total_content{
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    width: 100%;
+}
+
+
+.writer input[type="text"] {
+    width: 21%;
+    box-sizing: border-box;
 }

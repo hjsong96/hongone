@@ -23,4 +23,9 @@ public class QnaBoardService {
     public int getTotalPages(int size) {
         return (int) Math.ceil((double) qnaBoardDao.count() / size);  // 전체 페이지 수 계산
     }
+
+    public void addQnaBoard(QnaBoard qnaBoard) {
+
+
+    }
 }
