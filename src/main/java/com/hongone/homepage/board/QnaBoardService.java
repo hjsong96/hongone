@@ -25,7 +25,6 @@ public class QnaBoardService {
     }
 
     public void addQnaBoard(QnaBoard qnaBoard) {
-
-
+        qnaBoardDao.insertQnaBoard(qnaBoard);
     }
 }

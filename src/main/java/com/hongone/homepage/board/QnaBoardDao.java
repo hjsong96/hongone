@@ -30,4 +30,8 @@ public class QnaBoardDao {
     public int count() {
         return sqlSession.selectOne(NAMESPACE + ".count");
     }
+
+    public void insertQnaBoard(QnaBoard qnaBoard) {
+        sqlSession.insert(NAMESPACE + ".insertQnaBoard", qnaBoard);
+    }
 }

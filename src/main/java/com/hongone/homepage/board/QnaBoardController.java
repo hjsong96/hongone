@@ -53,11 +53,12 @@ public class QnaBoardController {
     }
 
     @PostMapping("/write")
-    public String submitQnaWrite(@RequestParam("qna_type") int qna_type, @RequestParam("qna_title") String qna_title, @RequestParam("qna_content") String qna_content) {
+    public String submitQnaWrite(@RequestParam("qna_type") int qna_type, @RequestParam("qna_title") String qna_title, @RequestParam("qna_content") String qna_content, @RequestParam("qna_writer") String qna_writer) {
 
         QnaBoard qnaBoard = new QnaBoard();
         qnaBoard.setQna_type(qna_type);
         qnaBoard.setQna_title(qna_title);
+        qnaBoard.setQna_writer(qna_writer);
         qnaBoard.setQna_content(qna_content);
         qnaBoard.setQna_date(String.valueOf(new Date()));
         qnaBoard.setQna_status(0);
