@@ -1,6 +1,7 @@
 package com.hongone.homepage.board;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class QnaBoard {
@@ -9,7 +10,7 @@ public class QnaBoard {
     private String qna_title;
     private String qna_writer;
     private String qna_content;
-    private String qna_date;
+    private LocalDateTime qna_date;
     private int qna_status;
     private String qna_delYn;
 
@@ -53,11 +54,11 @@ public class QnaBoard {
         this.qna_content = qna_content;
     }
 
-    public String getQna_date() {
+    public LocalDateTime getQna_date() {
         return qna_date;
     }
 
-    public void setQna_date(String qna_date) {
+    public void setQna_date(LocalDateTime qna_date) {
         this.qna_date = qna_date;
     }
 

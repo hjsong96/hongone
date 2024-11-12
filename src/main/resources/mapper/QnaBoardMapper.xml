@@ -22,8 +22,8 @@
         SELECT COUNT(*) FROM qnaboard
     </select>
 
-    <insert id="insertQnaBoard">
+    <insert id="addQnaBoard">
         INSERT INTO qnaboard (qna_type, qna_title, qna_writer, qna_content, qna_date, qna_status, qna_delYn)
-        VALUES ({#qna_type}, {#qna_title}, {#qna_writer}, #{qna_content}, #{qna_date}, #{qna_status}, #{qna_delYn})
+        VALUES (#{qna_type}, #{qna_title}, #{qna_writer}, #{qna_content}, #{qna_date}, #{qna_status}, #{qna_delYn})
     </insert>
 </mapper>

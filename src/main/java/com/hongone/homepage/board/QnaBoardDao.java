@@ -31,7 +31,7 @@ public class QnaBoardDao {
         return sqlSession.selectOne(NAMESPACE + ".count");
     }
 
-    public void insertQnaBoard(QnaBoard qnaBoard) {
-        sqlSession.insert(NAMESPACE + ".insertQnaBoard", qnaBoard);
+    public void addQnaBoard(QnaBoard qnaBoard) {
+        sqlSession.insert(NAMESPACE + ".addQnaBoard", qnaBoard);
     }
 }
