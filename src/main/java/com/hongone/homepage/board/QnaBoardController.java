@@ -1,16 +1,13 @@
 package com.hongone.homepage.board;
 
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Random;
+
 
 @Controller
 @RequestMapping("/qnaboard")
@@ -61,13 +58,31 @@ public class QnaBoardController {
         qnaBoard.setQna_title(qna_title);
         qnaBoard.setQna_writer(qna_writer);
         qnaBoard.setQna_content(qna_content);
-        qnaBoard.setQna_date(LocalDateTime.now());
-        qnaBoard.setQna_status(0);
-        qnaBoard.setQna_delYn("N");
 
-        System.out.println(qna_writer);
         qnaBoardService.addQnaBoard(qnaBoard);
 
         return "redirect:/qnaboard";
     }
+
+    @GetMapping("/detail/{qna_no}")
+    public String showQnaBoardDetail(@PathVariable("qna_no") int qna_no, Model model) {
+
+        QnaBoard qnaBoard  = qnaBoardService.findByNo(qna_no);
+        model.addAttribute("qnaBoard", qnaBoard);
+
+        return "qnaDetail";
+    }
+
+    @PostMapping("/edit/{qna_no}")
+    public String editQnaBoard(@PathVariable("qna_no") int qna_no, @ModelAttribute QnaBoard qnaBoard) {
+
+        int isUpdated = qnaBoardService.editQnaBoard(qnaBoard);
+
+        if (isUpdated == 1) {
+            return "redirect:/qnaboard";
+        } else {
+            return "redirect:/qnaboard/detail/" + qna_no;
+        }
+    }
+
 }

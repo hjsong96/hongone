@@ -5,7 +5,7 @@
 
 <mapper namespace="com.hongone.homepage.board.QnaBoardMapper">
 
-    <select id="findAll" resultType="com.hongone.homepage.board.QnaBoard">
+    <select id="findAll" resultType="QnaBoard">
         SELECT
             qna_no,
             qna_type,
@@ -23,7 +23,23 @@
     </select>
 
     <insert id="addQnaBoard">
-        INSERT INTO qnaboard (qna_type, qna_title, qna_writer, qna_content, qna_date, qna_status, qna_delYn)
-        VALUES (#{qna_type}, #{qna_title}, #{qna_writer}, #{qna_content}, #{qna_date}, #{qna_status}, #{qna_delYn})
+        INSERT INTO qnaboard (qna_type, qna_title, qna_writer, qna_content, qna_date, qna_update_date, qna_status, qna_delYn)
+        VALUES (#{qna_type}, #{qna_title}, #{qna_writer}, #{qna_content}, NOW(), NOW(), "0", "N")
     </insert>
+
+    <select id="findByNo" resultType="QnaBoard">
+        SELECT qna_no, qna_type, qna_title, qna_writer, qna_content FROM qnaboard WHERE qna_no=#{qna_no}
+    </select>
+
+    <update id="editQnaBoard">
+        UPDATE qnaboard
+        SET
+            qna_type=#{qna_type},
+            qna_title=#{qna_title},
+            qna_writer=#{qna_writer},
+            qna_content=#{qna_content},
+            qna_update_date=NOW()
+        WHERE qna_no=#{qna_no}
+    </update>
+
 </mapper>

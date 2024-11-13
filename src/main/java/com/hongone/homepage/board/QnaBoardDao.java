@@ -34,4 +34,12 @@ public class QnaBoardDao {
     public void addQnaBoard(QnaBoard qnaBoard) {
         sqlSession.insert(NAMESPACE + ".addQnaBoard", qnaBoard);
     }
+
+    public QnaBoard findByNo(int qna_no) {
+        return sqlSession.selectOne(NAMESPACE + ".findByNo", qna_no);
+    }
+
+    public int editQnaBoard(QnaBoard qnaBoard) {
+        return sqlSession.update(NAMESPACE + ".editQnaBoard", qnaBoard);
+    }
 }

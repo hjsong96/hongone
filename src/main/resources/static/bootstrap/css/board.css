@@ -178,3 +178,9 @@ ul {
     width: 15%;
     box-sizing: border-box;
 }
+
+.table a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}

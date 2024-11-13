@@ -1,6 +1,5 @@
 package com.hongone.homepage.board;
 
-import com.hongone.homepage.board.QnaBoard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +25,13 @@ public class QnaBoardService {
 
     public void addQnaBoard(QnaBoard qnaBoard) {
         qnaBoardDao.addQnaBoard(qnaBoard);
+    }
+
+    public QnaBoard findByNo(int qna_no) {
+        return qnaBoardDao.findByNo(qna_no);
+    }
+
+    public int editQnaBoard(QnaBoard qnaBoard) {
+        return qnaBoardDao.editQnaBoard(qnaBoard);
     }
 }

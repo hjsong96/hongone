@@ -10,7 +10,8 @@ public class QnaBoard {
     private String qna_title;
     private String qna_writer;
     private String qna_content;
-    private LocalDateTime qna_date;
+    private String qna_date;
+    private String qna_update_date;
     private int qna_status;
     private String qna_delYn;
 
@@ -54,12 +55,20 @@ public class QnaBoard {
         this.qna_content = qna_content;
     }
 
-    public LocalDateTime getQna_date() {
+    public String getQna_date() {
         return qna_date;
     }
 
-    public void setQna_date(LocalDateTime qna_date) {
+    public void setQna_date(String qna_date) {
         this.qna_date = qna_date;
+    }
+
+    public String getQna_update_date() {
+        return qna_update_date;
+    }
+
+    public void setQna_update_date(String qna_update_date) {
+        this.qna_update_date = qna_update_date;
     }
 
     public int getQna_status() {
