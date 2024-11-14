@@ -5,7 +5,24 @@
 
 <mapper namespace="com.hongone.homepage.board.QnaBoardMapper">
 
-    <select id="findAll" resultType="QnaBoard">
+    <sql id="searchCondition">
+        <choose>
+            <when test="searchType == 'search_title'">
+                qna_title LIKE #{searchKeyword}
+            </when>
+            <when test="searchType == 'search_writer'">
+                qna_writer LIKE #{searchKeyword}
+            </when>
+            <when test="searchType == 'search_content'">
+                qna_content LIKE #{searchKeyword}
+            </when>
+            <otherwise>
+                1 = 1 <!-- 조건이 없으면 전체 검색 -->
+            </otherwise>
+        </choose>
+    </sql>
+
+    <select id="getQnaBoards" resultType="QnaBoard">
         SELECT
             qna_no,
             qna_type,
@@ -14,12 +31,19 @@
             DATE_FORMAT(qna_date, '%Y-%m-%d') as qna_date,
             qna_status
         FROM qnaboard
+        WHERE
+            <include refid="searchCondition"/>
+        AND qna_delYn="N"
         ORDER BY qna_no DESC
         LIMIT #{size} OFFSET #{offset};
     </select>
 
-    <select id="count" resultType="java.lang.Integer">
-        SELECT COUNT(*) FROM qnaboard
+    <select id="getTotalCount" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM qnaboard
+        WHERE
+            <include refid="searchCondition"/>
+        AND qna_delYn="N"
     </select>
 
     <insert id="addQnaBoard">
@@ -28,7 +52,15 @@
     </insert>
 
     <select id="findByNo" resultType="QnaBoard">
-        SELECT qna_no, qna_type, qna_title, qna_writer, qna_content FROM qnaboard WHERE qna_no=#{qna_no}
+        SELECT
+            qna_no,
+            qna_type,
+            qna_title,
+            qna_writer,
+            qna_content
+        FROM qnaboard
+        WHERE qna_no=#{qna_no}
+        AND qna_delYn="N"
     </select>
 
     <update id="editQnaBoard">
@@ -42,9 +74,12 @@
         WHERE qna_no=#{qna_no}
     </update>
 
-    <delete id="deleteQnaBoard">
-        DELETE FROM qnaboard
+    <update id="deleteQnaBoard">
+        UPDATE qnaboard
+        SET
+            qna_delYn="Y",
+            qna_update_date=NOW()
         WHERE qna_no=#{qna_no}
-    </delete>
+    </update>
 
 </mapper>

@@ -21,11 +21,13 @@ public class QnaBoardController {
     @GetMapping
     public String listQnaBoards(@RequestParam(value = "page", defaultValue = "1") int page,
                                 @RequestParam(value = "size", defaultValue = "10") int size,
+                                @RequestParam(value = "searchType", defaultValue = "search_title") String searchType,
+                                @RequestParam(value = "searchKeyword", defaultValue = "") String searchKeyword,
                                 Model model) {
 
         // 페이징 처리된 QnA 목록 가져오기
-        List<QnaBoard> qnaBoards = qnaBoardService.getAllQnaBoards(page, size);
-        int totalPages = qnaBoardService.getTotalPages(size); //전체 페이지 수 계산
+        List<QnaBoard> qnaBoards = qnaBoardService.getQnaBoards(page, size, searchType, searchKeyword);
+        int totalPages = qnaBoardService.getTotalPages(size, searchType, searchKeyword); //전체 페이지 수 계산
 
         model.addAttribute("qnaBoards", qnaBoards);
         model.addAttribute("page", page);

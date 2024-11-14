@@ -17,18 +17,23 @@ public class QnaBoardDao {
     private static final String NAMESPACE = "com.hongone.homepage.board.QnaBoardMapper";
 
     // 페이징 처리된 QnA 게시판 목록을 조회하는 메서드
-    public List<QnaBoard> findAll(int offset, int size) {
+    public List<QnaBoard> getQnaBoards(int offset, int size, String searchType, String searchKeyword) {
         // 파라미터로 전달할 offset과 limit을 Map에 담기
         Map<String, Object> params = new HashMap<>();
+        params.put("searchType", searchType);
+        params.put("searchKeyword", "%" + searchKeyword + "%");
         params.put("offset", offset);
         params.put("size", size);
 
         // MyBatis 쿼리 호출
-        return sqlSession.selectList(NAMESPACE + ".findAll", params);
+        return sqlSession.selectList(NAMESPACE + ".getQnaBoards", params);
     }
 
-    public int count() {
-        return sqlSession.selectOne(NAMESPACE + ".count");
+    public int getTotalCount(String searchType, String searchKeyword) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("searchType", searchType);
+        params.put("searchKeyword", "%" + searchKeyword + "%");
+        return sqlSession.selectOne(NAMESPACE + ".getTotalCount", params);
     }
 
     public void addQnaBoard(QnaBoard qnaBoard) {
@@ -44,6 +49,8 @@ public class QnaBoardDao {
     }
 
     public int deleteQnaBoard(int qnaNo) {
-        return sqlSession.delete(NAMESPACE + ".deleteQnaBoard", qnaNo);
+        return sqlSession.update(NAMESPACE + ".deleteQnaBoard", qnaNo);
     }
+
+
 }
