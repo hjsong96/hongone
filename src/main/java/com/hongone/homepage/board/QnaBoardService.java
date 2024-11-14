@@ -34,4 +34,8 @@ public class QnaBoardService {
     public int editQnaBoard(QnaBoard qnaBoard) {
         return qnaBoardDao.editQnaBoard(qnaBoard);
     }
+
+    public int deleteQnaBoard(int qnaNo) {
+        return qnaBoardDao.deleteQnaBoard(qnaNo);
+    }
 }

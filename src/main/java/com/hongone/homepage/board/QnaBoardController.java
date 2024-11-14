@@ -2,6 +2,8 @@ package com.hongone.homepage.board;
 
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -85,4 +87,17 @@ public class QnaBoardController {
         }
     }
 
+    @PostMapping("/delete/{qna_no}")
+    public ResponseEntity<Void> deleteQnaBoard(@PathVariable("qna_no") int qna_no) {
+        try {
+            int response = qnaBoardService.deleteQnaBoard(qna_no);
+            if (response > 0) {
+                return ResponseEntity.ok().build();
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 }

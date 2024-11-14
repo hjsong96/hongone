@@ -42,4 +42,9 @@
         WHERE qna_no=#{qna_no}
     </update>
 
+    <delete id="deleteQnaBoard">
+        DELETE FROM qnaboard
+        WHERE qna_no=#{qna_no}
+    </delete>
+
 </mapper>

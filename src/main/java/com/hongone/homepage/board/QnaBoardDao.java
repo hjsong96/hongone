@@ -42,4 +42,8 @@ public class QnaBoardDao {
     public int editQnaBoard(QnaBoard qnaBoard) {
         return sqlSession.update(NAMESPACE + ".editQnaBoard", qnaBoard);
     }
+
+    public int deleteQnaBoard(int qnaNo) {
+        return sqlSession.delete(NAMESPACE + ".deleteQnaBoard", qnaNo);
+    }
 }
