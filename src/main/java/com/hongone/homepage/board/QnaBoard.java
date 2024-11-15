@@ -9,6 +9,7 @@ public class QnaBoard {
     private int qna_type;
     private String qna_title;
     private String qna_writer;
+    private int qna_pw;
     private String qna_content;
     private String qna_date;
     private String qna_update_date;
@@ -45,6 +46,14 @@ public class QnaBoard {
 
     public void setQna_writer(String qna_writer) {
         this.qna_writer = qna_writer;
+    }
+
+    public int getQna_pw() {
+        return qna_pw;
+    }
+
+    public void setQna_pw(int qna_pw) {
+        this.qna_pw = qna_pw;
     }
 
     public String getQna_content() {

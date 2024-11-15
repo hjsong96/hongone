@@ -146,6 +146,7 @@ ul {
 .content_row {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .content_input {
@@ -183,4 +184,10 @@ ul {
     text-decoration: none;
     cursor: pointer;
     color: inherit;
+}
+
+.content_half {
+    width: 50%;
+    display: flex;
+    align-items: center;
 }

@@ -30,6 +30,8 @@ public class QnaBoardController {
         int totalPages = qnaBoardService.getTotalPages(size, searchType, searchKeyword); //전체 페이지 수 계산
 
         model.addAttribute("qnaBoards", qnaBoards);
+        model.addAttribute("searchType", searchType);
+        model.addAttribute("searchKeyword", searchKeyword);
         model.addAttribute("page", page);
         model.addAttribute("size", size);
         model.addAttribute("totalPages", totalPages);

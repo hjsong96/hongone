@@ -47,8 +47,8 @@
     </select>
 
     <insert id="addQnaBoard">
-        INSERT INTO qnaboard (qna_type, qna_title, qna_writer, qna_content, qna_date, qna_update_date, qna_status, qna_delYn)
-        VALUES (#{qna_type}, #{qna_title}, #{qna_writer}, #{qna_content}, NOW(), NOW(), "0", "N")
+        INSERT INTO qnaboard (qna_type, qna_title, qna_writer, qna_pw, qna_content, qna_date, qna_update_date, qna_status, qna_delYn)
+        VALUES (#{qna_type}, #{qna_title}, #{qna_writer}, #{qna_pw}, #{qna_content}, NOW(), NOW(), "0", "N")
     </insert>
 
     <select id="findByNo" resultType="QnaBoard">

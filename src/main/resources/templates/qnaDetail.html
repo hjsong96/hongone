@@ -19,9 +19,6 @@
     <link href="/bootstrap/css/breadcrumbs.css" rel="stylesheet">
     <!--board-->
     <link href="/bootstrap/css/board.css" rel="stylesheet">
-    <style>
-    </style>
-
 </head>
 <body>
 <!-- Navigation-->
@@ -118,10 +115,7 @@
                 <div class="content_row">
                     <div class="content_title">제목</div>
                     <div class="content_input ms-5">
-                        <input type="text" name="qna_title" th:value="${qnaBoard.qna_title}" width="100%">
-                        <div id="titleError" class="error-message" style="display:none; color: red; font-size: 0.9em; margin-top: 5px;">
-                            제목을 입력해 주세요.
-                        </div>
+                        <input type="text" name="qna_title" id="qna_title" th:value="${qnaBoard.qna_title}" placeholder="제목을 입력하세요" width="100%">
                     </div>
                 </div>
             </div>
@@ -129,7 +123,7 @@
                 <div class="content_row">
                     <div class="content_title">내용</div>
                     <div class="content_input ms-5">
-                        <textarea name="qna_content" th:text="${qnaBoard.qna_content}" width="100%" ></textarea>
+                        <textarea name="qna_content" id="qna_content" th:text="${qnaBoard.qna_content}" placeholder="내용을 입력하세요" width="100%" ></textarea>
                     </div>
                 </div>
             </div>
@@ -137,7 +131,7 @@
                 <div class="content_row">
                     <div class="content_title">작성자</div>
                     <div class="content_input writer ms-6">
-                        <input type="text" name="qna_writer" th:value="${qnaBoard.qna_writer}" width="15%" >
+                        <input type="text" name="qna_writer" id="qna_writer" th:value="${qnaBoard.qna_writer}" placeholder="작성자" width="15%" >
                         <input type="hidden" id="qna_no" th:value="${qnaBoard.qna_no}">
                     </div>
                 </div>
@@ -151,24 +145,6 @@
         </div>
     </div>
 </form>
-<!--Modal Content-->
-<!--<div class="modal" tabindex="-1" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">삭제하기</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>정말 삭제하시겠습니까?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                <button type="button" class="btn btn-danger">삭제하기</button>
-            </div>
-        </div>
-    </div>
-</div>-->
 <!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; HongWon Package</p></div>
@@ -177,78 +153,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="/bootstrap/js/scripts.js"></script>
-<!--Modal-->
-<!--<script>
-    var myModal = document.getElementById('myModal')
-    var myInput = document.getElementById('myInput')
-
-    myModal.addEventListener('shown.bs.modal', function () {
-      myInput.focus()
-    })
-</script>-->
 <!--Sweetalert-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    function showDelete() {
-        const qna_no = document.getElementById('qna_no').value;
-        console.log(qna_no);
-
-        Swal.fire({
-            title: "삭제하시겠습니까?",
-            text: "삭제 후 복구는 어렵습니다.",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#0d6efd",
-            cancelButtonColor: "#dc3545",
-            confirmButtonText: "삭제하기",
-            cancelButtonText: '취소'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`/qnaboard/delete/${qna_no}`, {
-                    method: 'POST'
-                }).then(response => {
-                    if (response.ok) {
-                        Swal.fire({
-                            title: "삭제되었습니다.",
-                            icon: "success",
-                            confirmButtonText: "확인"
-                        }).then(() => {
-                            location.href = "/qnaboard";
-                        });
-                    } else {
-                        Swal.fire({
-                            title: "삭제 실패",
-                            icon: "error",
-                            confirmButtonText: "확인"
-                        });
-                    }
-                }).catch(error => {
-                    Swal.fire({
-                        title: "오류 발생",
-                        text: "삭제 중 문제가 발생했습니다.",
-                        icon: "error",
-                        confirmButtonText: "확인"
-                    });
-                });
-            }
-        });
-    }
-
-    function showEdit(event) {
-        event.preventDefault();
-
-        Swal.fire({
-          icon: "success",
-          title: "수정되었습니다!",
-          confirmButtonText: "확인",
-          confirmButtonColor: "#0d6efd",
-          allowOutsideClick: false
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.getElementById("edit").submit();
-            }
-        });
-    }
-</script>
+<script src="/bootstrap/js/qnaboard.js"></script>
 </body>
 </html>
