@@ -57,17 +57,35 @@ public class QnaBoardController {
     }
 
     @PostMapping("/write")
-    public String addQnaBoard(@RequestParam("qna_type") int qna_type, @RequestParam("qna_title") String qna_title, @RequestParam("qna_content") String qna_content, @RequestParam("qna_writer") String qna_writer) {
+    public String addQnaBoard(@RequestParam("qna_type") int qna_type, @RequestParam("qna_title") String qna_title, @RequestParam("qna_content") String qna_content, @RequestParam("qna_writer") String qna_writer, @RequestParam("qna_pw") String qna_pw) {
 
         QnaBoard qnaBoard = new QnaBoard();
         qnaBoard.setQna_type(qna_type);
         qnaBoard.setQna_title(qna_title);
         qnaBoard.setQna_writer(qna_writer);
         qnaBoard.setQna_content(qna_content);
+        qnaBoard.setQna_pw(qna_pw);
 
         qnaBoardService.addQnaBoard(qnaBoard);
 
         return "redirect:/qnaboard";
+    }
+
+    @GetMapping("/password-check/{qna_no}")
+    public String passwordCheck(@PathVariable("qna_no") int qna_no) {
+
+        return "qnaPWCheck";
+    }
+
+    @PostMapping("/password-check/{qna_no}")
+    public String checkPassword(@PathVariable("qna_no") int qna_no, @RequestParam("qna_pw") String qna_pw) {
+        QnaBoard qnaBoard = qnaBoardService.findByNo(qna_no);
+
+        if (qnaBoard.getQna_pw().equals(qna_pw)) {
+            return "redirect:/qnaboard/detail/" + qna_no;
+        } else {
+            return "redirect:/qnaboard/password-check/" + qna_no;
+        }
     }
 
     @GetMapping("/detail/{qna_no}")

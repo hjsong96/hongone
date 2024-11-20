@@ -19,12 +19,15 @@ function showWrite(event) {
     const qna_title = document.getElementById("qna_title").value.trim();
     const qna_content = document.getElementById("qna_content").value.trim();
     const qna_writer = document.getElementById("qna_writer").value.trim();
+    const qna_writer = document.getElementById("qna_pw").value.trim();
 
-    console.log(qna_title, qna_content, qna_writer);
+
+    console.log(qna_title, qna_content, qna_writer,qna_pw);
 
     if(!validateField(qna_title, 100, { title: "제목을 입력하세요.", text: "제목은 100자를 초과할 수 없습니다."})) return;
     if(!validateField(qna_content, 1000, { title: "내용을 입력하세요.", text: "내용은 1000자를 초과할 수 없습니다."})) return;
     if(!validateField(qna_writer, 5, { title: "작성자를 올바르게 입력하세요.", text: "작성자는 5글자를 초과할 수 없습니다."})) return;
+    if(!validateField(qna_pw, 4, { title: "비밀번호(숫자)를 올바르게 입력하세요.", text: "비밀번호는 4글자를 초과할 수 없습니다."})) return;
 
     Swal.fire({
       icon: "success",
@@ -90,10 +93,12 @@ function showEdit(event) {
     const qna_title = document.getElementById("qna_title").value.trim();
     const qna_content = document.getElementById("qna_content").value.trim();
     const qna_writer = document.getElementById("qna_writer").value.trim();
+    const qna_writer = document.getElementById("qna_pw").value.trim();
 
     if(!validateField(qna_title, 100, { title: "제목을 입력하세요.", text: "제목은 100자를 초과할 수 없습니다."})) return;
     if(!validateField(qna_content, 1000, { title: "내용을 입력하세요.", text: "내용은 1000자를 초과할 수 없습니다."})) return;
     if(!validateField(qna_writer, 5, { title: "작성자를 올바르게 입력하세요.", text: "작성자는 5글자를 초과할 수 없습니다."})) return;
+    if(!validateField(qna_pw, 4, { title: "비밀번호(숫자)를 올바르게 입력하세요.", text: "비밀번호는 4글자를 초과할 수 없습니다."})) return;
 
     Swal.fire({
       icon: "success",

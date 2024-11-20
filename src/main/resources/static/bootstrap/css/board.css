@@ -191,3 +191,38 @@ ul {
     display: flex;
     align-items: center;
 }
+
+.small_img{
+    width: 100px;
+    height: 100px;
+}
+
+.content_boundary {
+   border: 1px solid #dee2e6;
+   width: 440px;
+   padding: 40px 0 35px;
+}
+
+.content_text{
+    margin-bottom: 0.2rem;
+    font-size: 14px;
+}
+
+.long_input{
+    width: 80%;
+    height: 38px;
+    padding: 2px 130px;
+    text-align: center;
+}
+
+.center-box{
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.two_btn{
+    width: 100px;
+}
+

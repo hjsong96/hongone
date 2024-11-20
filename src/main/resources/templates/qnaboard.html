@@ -156,7 +156,7 @@
                     <span th:case="5">기타문의</span>
                 </th>
                 <td>
-                    <a th:href="@{/qnaboard/detail/{qna_no}(qna_no=${qnaBoard.qna_no})}" th:text="${qnaBoard.qna_title}"></a>
+                    <a th:href="@{/qnaboard/password-check/{qna_no}(qna_no=${qnaBoard.qna_no})}" th:text="${qnaBoard.qna_title}"></a>
                 </td>
                 <td th:text="${qnaBoard.qna_writer}"></td>
                 <td th:text="${qnaBoard.qna_date}"></td>

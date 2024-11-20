@@ -129,10 +129,13 @@
             </div>
             <div class="content my-sm-2">
                 <div class="content_row">
-                    <div class="content_title">작성자</div>
-                    <div class="content_input writer ms-6">
-                        <input type="text" name="qna_writer" id="qna_writer" th:value="${qnaBoard.qna_writer}" placeholder="작성자" width="15%" >
-                        <input type="hidden" id="qna_no" th:value="${qnaBoard.qna_no}">
+                    <div class="content_half">
+                        <div class="content_title">작성자</div>
+                        <input class="ms-6" type="text" name="qna_writer" id="qna_writer" th:value="${qnaBoard.qna_writer}" placeholder="작성자" width="15%" >
+                    </div>
+                    <div class="content_half">
+                        <div class="content_title">비밀번호</div>
+                        <input class="ms-6" type="password" name="qna_pw" id="qna_pw" th:value="${qnaBoard.qna_pw}" placeholder="비밀번호" width="15%" >
                     </div>
                 </div>
             </div>

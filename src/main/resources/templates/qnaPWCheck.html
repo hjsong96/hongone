@@ -95,60 +95,29 @@
         </ol>
     </nav>
 </div>
-<!--qnaContent-->
+<!--pw check-->
 <form id="write" th:action="@{/qnaboard/write}" method="post">
-    <div class="container">
-        <div class="total_content p-4">
-            <div class="content my-sm-2">
-                <div class="content_row">
-                    <div class="content_title">문의유형</div>
-                    <div class="content_input ms-4">
-                        <ul>
-                            <li><input type="radio" name=qna_type value="0" checked>주문/결제</li>
-                            <li><input type="radio" name=qna_type value="1">취소/반품/교환</li>
-                            <li><input type="radio" name=qna_type value="2">배송문의</li>
-                            <li><input type="radio" name=qna_type value="3">상품문의</li>
-                            <li><input type="radio" name=qna_type value="4">회원문의</li>
-                            <li><input type="radio" name=qna_type value="5">기타문의</li>
-                         </ul>
-                    </div>
+    <div class="container center-box">
+        <div class="pwCheck">
+            <div class="content_boundary rounded-2 mb-sm-4">
+                <div class="content_total text-center">
+                    <img class="small_img" src="/bootstrap/assets/lock.png" alt="이미지 없음">
+                    <p class="content_title mt-sm-4 fs-5 fw-bold">비밀글 보기</p>
+                    <p class="content_text fw-light">이 글은 비밀글입니다.</p>
+                    <p class="content_text fw-light">게시글 작성 시 기입한 비밀번호를 입력해 주세요.</p>
+                    <label for="qna_pw"></label>
+                    <input class="long_input mt-sm-4" type="password" id="qna_pw" name="qna_pw" placeholder="비밀번호" required>
+                </div>
+                <!--bottom_btn-->
+                <div class="bottom_center_btn mt-sm-4">
+                    <button class="btn btn-secondary two_btn" type="button" onclick="window.location.href='/qnaboard'">목록</button>
+                    <button class="btn btn-primary two_btn" type="submit" onclick="showDetail(event)">확인</button>
                 </div>
             </div>
-            <div class="content my-sm-2">
-                <div class="content_row">
-                    <div class="content_title">제목</div>
-                    <div class="content_input ms-5">
-                        <input type="text" name="qna_title" id="qna_title" th:value="${qna_title}" placeholder="제목을 입력하세요" width="100%">
-                    </div>
-                </div>
-            </div>
-            <div class="content my-sm-2">
-                <div class="content_row">
-                    <div class="content_title">내용</div>
-                    <div class="content_input ms-5">
-                        <textarea name="qna_content" id="qna_content" th:value="${qna_content}" placeholder="내용을 입력하세요" width="100%" ></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="content my-sm-2">
-                <div class="content_row">
-                    <div class="content_half">
-                        <div class="content_title">작성자</div>
-                        <input class="ms-6" type="text" name="qna_writer" id="qna_writer" th:value="${qna_writer}" placeholder="작성자" width="15%" >
-                    </div>
-                    <div class="content_half">
-                        <div class="content_title">비밀번호</div>
-                        <input class="ms-6" type="password" name="qna_pw" id="qna_pw" th:value="${qna_pw}" placeholder="비밀번호" width="15%" >
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bottom_center_btn my-sm-4">
-            <button class="btn btn-secondary" type="button" onclick="window.location.href='/qnaboard'">목록</button>
-            <button class="btn btn-primary" type="submit" onclick="showWrite(event)">문의하기</button>
         </div>
     </div>
 </form>
+
 
 <!-- Footer-->
 <footer class="py-5 bg-dark">
