@@ -150,32 +150,3 @@ function showDetail(event) {
         });
     });
 }
-
-//Modal
-//<script>
-//    var myModal = document.getElementById('myModal')
-//    var myInput = document.getElementById('myInput')
-//
-//    myModal.addEventListener('shown.bs.modal', function () {
-//      myInput.focus()
-//    })
-//</script>
-
-//Modal Content
-//<div class="modal" tabindex="-1" id="myModal">
-//    <div class="modal-dialog">
-//        <div class="modal-content">
-//            <div class="modal-header">
-//                <h5 class="modal-title">삭제하기</h5>
-//                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-//            </div>
-//            <div class="modal-body">
-//                <p>정말 삭제하시겠습니까?</p>
-//            </div>
-//            <div class="modal-footer">
-//                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-//                <button type="button" class="btn btn-danger">삭제하기</button>
-//            </div>
-//        </div>
-//    </div>
-//</div>

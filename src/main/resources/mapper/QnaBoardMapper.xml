@@ -70,8 +70,6 @@
             qna_type=#{qna_type},
             qna_title=#{qna_title},
             qna_content=#{qna_content},
-            qna_writer=#{qna_writer},
-            qna_pw=#{qna_pw},
             qna_update_date=NOW()
         WHERE qna_no=#{qna_no}
     </update>

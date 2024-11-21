@@ -98,11 +98,11 @@
 <!--Customer-img-->
 <div class="section my-4">
     <nav class="card-section my-3">
-        <a class="card-img" href="/fre_qnaboard">
+        <a class="card-img" href="/freQnaBoard">
         <img src="/bootstrap/assets/frequent.png" alt="이미지 없음">
             <p>자주 묻는 질문</p>
         </a>
-        <a class="card-img" href="/noti_board">
+        <a class="card-img" href="/notiBoard">
             <img src="/bootstrap/assets/notice.png" alt="이미지 없음">
             <p>공지사항</p>
         </a>
@@ -110,7 +110,7 @@
             <img src="/bootstrap/assets/qna.png" alt="이미지 없음">
             <p>고객문의</p>
         </a>
-        <a class="card-img" href="/quo_board">
+        <a class="card-img" href="/quoBoard">
             <img src="/bootstrap/assets/box.png" alt="이미지 없음">
             <p>견적문의</p>
         </a>
@@ -127,12 +127,12 @@
                     <option value="search_content" th:selected="${searchType=='search_content'}">내용</option>
                 </select>
                 <input type="text" name="searchKeyword" th:value="${searchKeyword}" placeholder="검색어를 입력하세요" >
-                <button type="submit">검색</button>
+                <button class="btn btn-primary" type="submit">검색</button>
             </div>
         </form>
     </div>
 <!--    게시물 있을 때 테이블 표시-->
-    <div class="container mt-4">
+    <div class="container mt-2">
         <table class="table">
             <thead>
             <tr class="table table-primary">
@@ -156,7 +156,10 @@
                     <span th:case="5">기타문의</span>
                 </th>
                 <td>
-                    <a th:href="@{/qnaboard/password-check/{qna_no}(qna_no=${qnaBoard.qna_no})}" th:text="${qnaBoard.qna_title}"></a>
+                    <div class="img_text">
+                        <img class="sm_img" src="/bootstrap/assets/lock2.png" alt="이미지 없음">
+                        <a th:href="@{/qnaboard/password-check/{qna_no}(qna_no=${qnaBoard.qna_no})}" th:text="${qnaBoard.qna_title}"></a>
+                    </div>
                 </td>
                 <td th:text="${qnaBoard.qna_writer}"></td>
                 <td th:text="${qnaBoard.qna_date}"></td>

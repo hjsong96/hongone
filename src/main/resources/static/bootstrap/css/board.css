@@ -114,9 +114,23 @@
   font-size: 14px; /* 텍스트 크기 설정 */
 }
 
+select[name="searchType"] {
+    height: 38px;
+    margin-right: 0.3rem;
+
+}
+input[name="searchKeyword"] {
+    height: 38px;
+}
+
 .search-container{
 display: flex;
 justify-content: flex-end;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;
 }
 
 .board_bottom_area {
@@ -192,7 +206,18 @@ ul {
     align-items: center;
 }
 
-.small_img{
+.sm_img {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.md_img{
+    width: 25px;
+    height: 25px;
+}
+
+.lg_img{
     width: 100px;
     height: 100px;
 }
@@ -226,3 +251,18 @@ ul {
     width: 100px;
 }
 
+.img_text{
+    display:flex;
+    align-items: center;
+}
+
+.center-search-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-search-box input[name="searchKeyword"] {
+       width: 50%;
+}

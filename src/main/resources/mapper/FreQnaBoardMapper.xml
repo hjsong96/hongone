@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hongone.homepage.board.FreQnaBoardMapper">
+
+    <sql id="searchCondition">
+        <choose>
+            <when test="searchKeyword !=null and searchKeyword != ''">
+                AND (fre_title LIKE #{searchKeyword} OR fre_content LIKE #{searchKeyword})
+            </when>
+            <otherwise>
+                AND 1 = 1
+            </otherwise>
+        </choose>
+    </sql>
+
+    <select id="getFreQnaBoards" resultType="FreQnaBoard">
+        SELECT
+            fre_no,
+            fre_type,
+            fre_title,
+            fre_content,
+            DATE_FORMAT(fre_date, '%Y-%m-%d') as fre_date
+        FROM fre_qnaboard
+        WHERE fre_delYn="N"
+        <include refid="searchCondition"/>
+        ORDER BY fre_no DESC
+        LIMIT #{size} OFFSET #{offset};
+    </select>
+
+    <select id="getTotalCount" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM fre_qnaboard
+        WHERE fre_delYn="N"
+        <include refid="searchCondition"/>
+    </select>
+
+</mapper>
