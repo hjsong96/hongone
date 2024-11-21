@@ -96,29 +96,26 @@
     </nav>
 </div>
 <!--pw check-->
-<form id="write" th:action="@{/qnaboard/write}" method="post">
-    <div class="container center-box">
-        <div class="pwCheck">
-            <div class="content_boundary rounded-2 mb-sm-4">
-                <div class="content_total text-center">
-                    <img class="small_img" src="/bootstrap/assets/lock.png" alt="이미지 없음">
-                    <p class="content_title mt-sm-4 fs-5 fw-bold">비밀글 보기</p>
-                    <p class="content_text fw-light">이 글은 비밀글입니다.</p>
-                    <p class="content_text fw-light">게시글 작성 시 기입한 비밀번호를 입력해 주세요.</p>
-                    <label for="qna_pw"></label>
-                    <input class="long_input mt-sm-4" type="password" id="qna_pw" name="qna_pw" placeholder="비밀번호" required>
-                </div>
-                <!--bottom_btn-->
-                <div class="bottom_center_btn mt-sm-4">
-                    <button class="btn btn-secondary two_btn" type="button" onclick="window.location.href='/qnaboard'">목록</button>
-                    <button class="btn btn-primary two_btn" type="submit" onclick="showDetail(event)">확인</button>
-                </div>
+<div class="container center-box">
+    <div class="pwCheck">
+        <div class="content_boundary rounded-2 mb-sm-4">
+            <div class="content_total text-center">
+                <img class="small_img" src="/bootstrap/assets/lock.png" alt="이미지 없음">
+                <p class="content_title mt-sm-4 fs-5 fw-bold">비밀글 보기</p>
+                <p class="content_text fw-light">이 글은 비밀글입니다.</p>
+                <p class="content_text fw-light">게시글 작성 시 기입한 비밀번호를 입력해 주세요.</p>
+                <label for="qna_pw"></label>
+                <input class="long_input mt-sm-4" type="hidden" id="qna_no" name="qna_no" th:value="${qna_no}" placeholder="게시물번호">
+                <input class="long_input mt-sm-4" type="password" id="qna_pw" name="qna_pw" placeholder="비밀번호" required>
+            </div>
+            <!--bottom_btn-->
+            <div class="bottom_center_btn mt-sm-4">
+                <button class="btn btn-secondary two_btn" type="button" onclick="window.location.href='/qnaboard'">목록</button>
+                <button class="btn btn-primary two_btn" onclick="showDetail(event)">확인</button>
             </div>
         </div>
     </div>
-</form>
-
-
+</div>
 <!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; HongWon Package</p></div>

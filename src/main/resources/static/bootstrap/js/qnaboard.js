@@ -19,10 +19,7 @@ function showWrite(event) {
     const qna_title = document.getElementById("qna_title").value.trim();
     const qna_content = document.getElementById("qna_content").value.trim();
     const qna_writer = document.getElementById("qna_writer").value.trim();
-    const qna_writer = document.getElementById("qna_pw").value.trim();
-
-
-    console.log(qna_title, qna_content, qna_writer,qna_pw);
+    const qna_pw = document.getElementById("qna_pw").value.trim();
 
     if(!validateField(qna_title, 100, { title: "제목을 입력하세요.", text: "제목은 100자를 초과할 수 없습니다."})) return;
     if(!validateField(qna_content, 1000, { title: "내용을 입력하세요.", text: "내용은 1000자를 초과할 수 없습니다."})) return;
@@ -93,7 +90,7 @@ function showEdit(event) {
     const qna_title = document.getElementById("qna_title").value.trim();
     const qna_content = document.getElementById("qna_content").value.trim();
     const qna_writer = document.getElementById("qna_writer").value.trim();
-    const qna_writer = document.getElementById("qna_pw").value.trim();
+    const qna_pw = document.getElementById("qna_pw").value.trim();
 
     if(!validateField(qna_title, 100, { title: "제목을 입력하세요.", text: "제목은 100자를 초과할 수 없습니다."})) return;
     if(!validateField(qna_content, 1000, { title: "내용을 입력하세요.", text: "내용은 1000자를 초과할 수 없습니다."})) return;
@@ -113,6 +110,46 @@ function showEdit(event) {
     });
 }
 
+function showDetail(event) {
+    const qna_no = document.getElementById("qna_no").value.trim();
+    const qna_pw = document.getElementById("qna_pw").value.trim();
+
+    // 비밀번호 유효성 검사
+    if(!validateField(qna_pw, 4, { title: "비밀번호를 바르게 입력하세요.", text: "비밀번호는 4자를 초과할 수 없습니다."})) return;
+
+    // 서버에 요청
+    fetch(`/qnaboard/password-check/${qna_no}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            qna_pw: qna_pw
+        })
+    })
+    .then(response => response.text()) // 서버에서 숫자가 문자열로 올 가능성 있음
+    .then(data => {
+        console.log(data);
+        if (data === "1") {
+            location.href = `/qnaboard/detail/${qna_no}`;
+        } else {
+            Swal.fire({
+                title: "비밀번호가 일치하지 않습니다.",
+                text: "비밀번호를 재확인 해주세요.",
+                icon: "error",
+                confirmButtonText: "확인"
+            });
+        }
+    })
+    .catch(error => {
+        Swal.fire({
+            title: "오류 발생",
+            text: "비밀번호 인증 중 문제가 발생했습니다.",
+            icon: "error",
+            confirmButtonText: "확인"
+        });
+    });
+}
 
 //Modal
 //<script>

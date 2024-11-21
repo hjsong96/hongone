@@ -52,5 +52,10 @@ public class QnaBoardDao {
         return sqlSession.update(NAMESPACE + ".deleteQnaBoard", qnaNo);
     }
 
-
+    public int checkPassword(int qna_no, String qna_pw) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("qna_no", qna_no);
+        params.put("qna_pw", qna_pw);
+        return sqlSession.selectOne(NAMESPACE + ".checkPassword", params);
+    }
 }

@@ -72,28 +72,25 @@ public class QnaBoardController {
     }
 
     @GetMapping("/password-check/{qna_no}")
-    public String passwordCheck(@PathVariable("qna_no") int qna_no) {
+    public String passwordCheck(@PathVariable("qna_no") int qna_no, Model model) {
+        model.addAttribute("qna_no", qna_no);
 
         return "qnaPWCheck";
     }
 
     @PostMapping("/password-check/{qna_no}")
-    public String checkPassword(@PathVariable("qna_no") int qna_no, @RequestParam("qna_pw") String qna_pw) {
-        QnaBoard qnaBoard = qnaBoardService.findByNo(qna_no);
-
-        if (qnaBoard.getQna_pw().equals(qna_pw)) {
-            return "redirect:/qnaboard/detail/" + qna_no;
-        } else {
-            return "redirect:/qnaboard/password-check/" + qna_no;
-        }
+    public ResponseEntity<Integer> checkPassword(@PathVariable("qna_no") int qna_no, @RequestParam("qna_pw") String qna_pw) {
+        int result = qnaBoardService.checkPassword(qna_no, qna_pw);
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/detail/{qna_no}")
     public String showQnaBoardDetail(@PathVariable("qna_no") int qna_no, Model model) {
-
-        QnaBoard qnaBoard  = qnaBoardService.findByNo(qna_no);
-        model.addAttribute("qnaBoard", qnaBoard);
-
+        QnaBoard qnaBoard = qnaBoardService.findByNo(qna_no);
+        System.out.println("QnaBoard: " + qnaBoard); // qnaBoard 객체 로그 확인
+        if (qnaBoard != null) {
+            model.addAttribute("qnaBoard", qnaBoard);
+        }
         return "qnaDetail";
     }
 

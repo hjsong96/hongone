@@ -39,4 +39,9 @@ public class QnaBoardService {
     public int deleteQnaBoard(int qnaNo) {
         return qnaBoardDao.deleteQnaBoard(qnaNo);
     }
+
+
+    public int checkPassword(int qna_no, String qna_pw) {
+        return qnaBoardDao.checkPassword(qna_no, qna_pw);
+    }
 }

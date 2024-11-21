@@ -61,7 +61,6 @@
             qna_pw
         FROM qnaboard
         WHERE qna_no=#{qna_no}
-        AND qna_pw=#{qna_pw}
         AND qna_delYn="N"
     </select>
 
@@ -84,5 +83,13 @@
             qna_update_date=NOW()
         WHERE qna_no=#{qna_no}
     </update>
+
+    <select id="checkPassword" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM qnaboard
+        WHERE qna_no=#{qna_no}
+        AND qna_pw=#{qna_pw}
+        AND qna_delYn="N"
+    </select>
 
 </mapper>
