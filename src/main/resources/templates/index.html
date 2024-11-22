@@ -75,44 +75,7 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a href="/">
-                    <img src="/bootstrap/assets/logo4.png" alt="이미지 없음" style="width:270px;height:50px;">
-                </a>
-                <!--<a class="navbar-brand" href="#!">HongWon Package</a>-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">홈</a></li>
-                        <!--<li class="nav-item"><a class="nav-link" href="#!">회사소개</a></li>-->
-                        <li class="nav-item"><a class="nav-link" href="/product">상품</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/qnaboard">고객센터</a></li>
-<!--                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">상품보기</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">전체상품</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">큰박스</a></li>
-                                <li><a class="dropdown-item" href="#!">작은박스</a></li>
-                            </ul>
-                        </li>-->
-                    </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            카트
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi bi-person-circle"></i>
-                            마이페이지
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </nav>
+        <div th:replace="navbar :: fragment"></div>
         <!-- Header-->
         <header>
             <!--Swiper HTML 구조-->

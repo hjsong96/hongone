@@ -25,34 +25,7 @@
 </head>
 <body>
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a href="/">
-            <img src="/bootstrap/assets/logo4.png" alt="이미지 없음" style="width:270px;height:50px;">
-        </a>
-        <!--<a class="navbar-brand" href="#!">HongWon Package</a>-->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">홈</a></li>
-                <li class="nav-item"><a class="nav-link" href="/product">상품</a></li>
-                <li class="nav-item"><a class="nav-link" href="/qnaboard">고객센터</a></li>
-            </ul>
-            <form class="d-flex">
-                <button class="btn btn-outline-dark" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    카트
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button>
-                <button class="btn btn-outline-dark" type="submit">
-                    <i class="bi bi-person-circle"></i>
-                    마이페이지
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button>
-            </form>
-        </div>
-    </div>
-</nav>
+<div th:replace="navbar :: fragment"></div>
 <!-- Header-->
 <header class="bg-dark py-5">
     <div class="container px-4 px-lg-5 my-5">
@@ -70,6 +43,19 @@
         </div>
     </div>
 </header>
+<div class="white-area">
+<!--left menu-->
+    <div class="lf-area">
+    <aside id="aside">
+        <div class="container list-group">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">자주 묻는 질문</a>
+            <a href="#" class="list-group-item list-group-item-action">공지사항</a>
+            <a href="#" class="list-group-item list-group-item-action">고객문의</a>
+            <a href="#" class="list-group-item list-group-item-action">견적문의</a>
+        </div>
+    </aside>
+    </div>
+<div class="md-area">
 <!--house-->
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="house-door-fill" viewBox="0 0 16 16">
@@ -77,7 +63,7 @@
     </symbol>
 </svg>
 <!--Customer-Info-->
-<div class="container my-4">
+<div class="container my-2">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
             <li class="breadcrumb-item">
@@ -97,7 +83,7 @@
 </div>
 <!--Customer-img-->
 <div class="section my-4">
-    <nav class="card-section my-3">
+    <nav class="container card-section my-3">
         <a class="card-img" href="/freQnaBoard">
         <img src="/bootstrap/assets/frequent.png" alt="이미지 없음">
             <p>자주 묻는 질문</p>
@@ -199,6 +185,9 @@
             </div>
     </div>
 </section>
+</div>
+<div class="rg-area"></div>
+</div>
 <!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; HongWon Package</p></div>
