@@ -10847,3 +10847,12 @@ textarea.form-control-lg {
     display: flex;
     justify-content: center;
 }
+
+.navbar-collapse{
+    margin-left: 3%;
+}
+
+.navbar-nav{
+    width: 100%;
+    gap: 4%;
+}
