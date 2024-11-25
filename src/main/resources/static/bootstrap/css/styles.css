@@ -10856,3 +10856,7 @@ textarea.form-control-lg {
     width: 100%;
     gap: 4%;
 }
+
+.white-area{
+    min-height: 30rem;
+}

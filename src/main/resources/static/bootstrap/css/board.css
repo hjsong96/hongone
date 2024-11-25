@@ -215,11 +215,6 @@ ul {
     border: 1px solid #ccc;
 }
 
-.white-area {
-  display: flex;
-  padding: 20px;
-}
-
 #aside {
   flex: 0 0 200px;
   position: sticky;
